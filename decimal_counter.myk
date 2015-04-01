@@ -1,0 +1,16 @@
+# Decimal counter
+
+00 STZ 010000 dummy write, zeroing ACC and FLAG
+01 STZ 100000 (32) zero counter store at 32
+02 STZ 010000 clear ACC and FLAG start of loop
+03 ADD 100000 (32) load ACC with store at 32
+04 ADD 000001 add one to it
+05 STZ 100000 store back to ram
+06 ADD 100000 read ACC back
+07 ADD 000110 add six
+08 JPC 001010 (0B) jump if carry set (ie: counter = ten)
+09 STZ 010001 clear ACC, set flag
+0A JPC 000010 jump back to start
+0B STZ 010001 clear ACC, set flag
+0C STZ 100000 zero the store
+0D JPC 000010 (02) jump back
